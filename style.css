@@ -277,3 +277,35 @@ footer {
         gap: 10px;
     }
 }
+
+/* 新しいスタイル */
+.sticker-buttons {
+    display: flex; /* Flexboxコンテナにする */
+    flex-wrap: wrap; /* ボタンが収まらない場合は次の行に折り返す */
+    justify-content: center; /* ボタンを中央に配置 */
+    gap: 15px; /* ボタン間の間隔を設定 */
+    margin-top: 30px; /* 必要に応じて上部の余白を調整 */
+    margin-bottom: 20px; /* 必要に応じて下部の余白を調整 */
+}
+
+.sticker-buttons .btn {
+    flex-shrink: 0; /* ボタンが縮まないようにする */
+    min-width: 200px; /* ボタンの最小幅を設定して、小さくなりすぎないようにする */
+    max-width: 100%; /* 親要素を超えないようにする */
+}
+
+/* スマホ向け調整 (既存のメディアクエリに追加または新しいブロックとして) */
+@media (max-width: 768px) {
+    .sticker-buttons {
+        flex-direction: column; /* 縦に並べる */
+        align-items: center; /* 中央揃えにする */
+        gap: 10px; /* スマホでのボタン間の間隔を調整 */
+    }
+
+    .sticker-buttons .btn {
+        width: 90%; /* スマホでは幅を広げてタップしやすくする */
+        max-width: 300px; /* 最大幅を設定して、大きくなりすぎないようにする */
+        padding: 12px 20px; /* スマホでのパディングを調整 */
+        font-size: 1em; /* スマホでのフォントサイズを調整 */
+    }
+}
