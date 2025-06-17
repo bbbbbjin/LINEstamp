@@ -1,0 +1,279 @@
+/* 全体設定 */
+:root {
+    --line-green: #00C300; /* LINEのテーマカラー（緑） */
+    --light-green: #E6FFE6; /* 薄い緑 */
+    --dark-green: #008800; /* 濃い緑 */
+    --text-color: #333;
+    --white: #fff;
+    --gray: #f4f4f4;
+    --border-color: #ddd;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--gray); /* 全体の背景色 */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ヘッダー */
+header {
+    background-color: var(--line-green);
+    color: var(--white);
+    text-align: center;
+    padding: 0px 0px; /* ここは既に0pxです */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin-top: 0;
+    font-size: 2.2em; /* 変更: 2.8em から 2.2em へ */
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 5px; /* 変更: タイトル下の余白を減らしました */
+}
+
+header p {
+    font-size: 1em; /* 変更: 1.2em から 1em へ */
+    max-width: 800px;
+    margin: 5px auto 0; /* 変更: 上の余白を減らしました */
+    opacity: 0.9;
+}
+
+/* 画面サイズに応じたH1の表示/非表示設定 */
+.title-large-screen {
+    display: block; /* デフォルトで表示 (PC・タブレット用) */
+}
+
+.title-small-screen {
+    display: none; /* デフォルトで非表示 (スマホ用) */
+}
+
+
+/* カテゴリセクション */
+.category-section {
+    padding: 0px 0;
+    text-align: center;
+}
+
+.category-section h2 {
+    font-size: 2.2em;
+    color: var(--line-green);
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+/* 見出しの下線（スタイリッシュな表現） */
+.category-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--dark-green);
+    border-radius: 2px;
+}
+
+.category-description {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* レスポンシブ対応 */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.category-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+    display: flex; /* flexboxで中身を制御 */
+    flex-direction: column; /* 縦並び */
+    justify-content: space-between; /* 上下均等配置 */
+    min-height: 420px; /* カードの最小高さを揃える */
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.category-card h3 {
+    font-size: 1.6em;
+    color: var(--dark-green);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.category-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.category-card p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 25px;
+    flex-grow: 1; /* 高さが変わってもボタンが下揃えになるように */
+}
+
+/* ボタン */
+.btn {
+    display: inline-block;
+    background-color: var(--line-green);
+    color: var(--white);
+    padding: 15px 30px;
+    border-radius: 50px; /* 角丸を大きくしてスタイリッシュに */
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 195, 0, 0.3); /* 緑系の影 */
+    margin-top: auto; /* カードの下部に配置 */
+}
+
+.btn:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 136, 0, 0.4);
+}
+
+/* フッター */
+footer {
+    background-color: #333;
+    color: var(--white);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
+
+/* daily-stamps.html 用の追加スタイル */
+.stamp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* スマホ対応で調整 */
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.stamp-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.stamp-type-section {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.stamp-type-section h3 {
+    font-size: 2em;
+    color: var(--dark-green);
+    margin-top: 0;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+.stamp-type-section h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background-color: var(--line-green);
+    border-radius: 1.5px;
+}
+
+.back-btn {
+    display: inline-block;
+    background-color: #666;
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+}
+.back-btn:hover {
+    background-color: #444;
+}
+
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    /* PC・タブレット用タイトルを非表示 */
+    .title-large-screen {
+        display: none;
+    }
+    /* スマホ用タイトルを表示 */
+    .title-small-screen {
+        display: block;
+    }
+
+    header h1 {
+        font-size: 1.8em; /* 変更: 2.2em から 1.8em へ（スマホ用タイトルにも適用） */
+    }
+
+    header p {
+        font-size: 0.9em; /* 変更: 1em から 0.9em へ */
+        margin: 3px auto 0; /* 変更: 上の余白をさらに減らしました */
+    }
+
+    .category-section h2 {
+        font-size: 1.8em;
+    }
+
+    .categories {
+        grid-template-columns: 1fr; /* スマホでは1列表示 */
+    }
+
+    .category-card {
+        min-height: auto; /* スマホでは高さを自動調整 */
+    }
+
+    /* daily-stamps.html 用のスマホ向け調整 */
+    .stamp-type-section {
+        padding: 25px;
+    }
+    .stamp-type-section h3 {
+        font-size: 1.6em;
+    }
+    .stamp-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 10px;
+    }
+}
